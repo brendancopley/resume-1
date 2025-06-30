@@ -6,6 +6,8 @@ import InfoCard from '@/components/InfoCard.vue';
 import SkillCard from '@/components/SkillCard.vue';
 import LanguageCard from './components/LanguageCard.vue';
 import AboutCard from './components/AboutCard.vue';
+import { LoginWidget } from 'vue-tg';
+import type { LoginWidgetUser } from 'vue-tg';
 
 import { useThemeStore } from '@/stores/ThemeStore';
 import { useResumeStore } from '@/stores/ResumeStore';
@@ -26,6 +28,11 @@ onMounted(() => {
     locale.value = localStorage.locale;
   }
 });
+
+function handleUserAuth(user: LoginWidgetUser) {
+  console.log('tg-user', user);
+  // ...
+}
 </script>
 
 <template>
@@ -54,6 +61,7 @@ onMounted(() => {
         <!-- Start about me -->
         <AboutCard />
         <!-- End about me -->
+        <LoginWidget bot-username="vera_tpbot" @auth="handleUserAuth" />
         <RouterView />
       </div>
       <!-- End right side -->

@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { createI18n } from 'vue-i18n';
+import { VueTelegramPlugin } from 'vue-tg';
 import App from './App.vue';
 import router from './router';
 import VueEasyLightbox from 'vue-easy-lightbox';
@@ -29,5 +30,6 @@ app.use(i18n);
 app.use(VueEasyLightbox);
 app.use(router);
 app.use(createPinia());
+app.use(VueTelegramPlugin);
 
 app.mount('#app');
